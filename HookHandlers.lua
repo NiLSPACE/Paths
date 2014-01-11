@@ -1,17 +1,25 @@
+--[[Create a table for the player]]--
 function OnPlayerJoined(Player)
 	local PlayerName = Player:GetName()
 	CurrentPath[PlayerName] = -1
 	Paths[PlayerName] = {}
 end
 
+
+
+
+--[[Manage the movement]]--
 function OnPlayerMoving(Player)
 	local PlayerName = Player:GetName()
+	-- Player isn't in path mode
 	if CurrentPath[PlayerName] == -1 then
 		return false
 	end
+	--Player has to be flying to get the best results.
 	if not Player:IsFlying() then
 		Player:SetFlying(true)
 	end
+	--It isn't nice to see half of the screen full of fire while sightseeing
 	if Player:IsOnFire() then
 		Player:StopBurning()
 	end
@@ -26,6 +34,8 @@ function OnPlayerMoving(Player)
 		end
 		CurrentPath[PlayerName] = CurrentPath[PlayerName] + 1
 	end
+	
+	-- Without a limit the player would just speed up and speed up.. wich isn't good.
 	if Player:GetSpeed():Length() / 2 > MaxSpeed[PlayerName] then
 		Player:SetSpeed(Player:GetSpeed() / 2)
 		return false
@@ -33,7 +43,7 @@ function OnPlayerMoving(Player)
 	local Speed = DirectionVector:NormalizeCopy() * 2
 	-- Invert the direction
 	Speed.x = -Speed.x
-	Speed.y = -Speed.y * 1.1
+	Speed.y = -Speed.y
 	Speed.z = -Speed.z
 	
 	local PlayerSpeed = Player:GetSpeed()
