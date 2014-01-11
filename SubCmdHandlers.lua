@@ -88,3 +88,9 @@ function HandleSubCmdTeleport(Split, Player)
 	Player:SendMessage("You teleported to ID:" .. ID .. " X:" .. string.sub(Coordinates.x, 1, string.len(math.floor(Coordinates.x) + 2)) .. " Y:" .. string.sub(Coordinates.y, 1, string.len(math.floor(Coordinates.y) + 2)) .. " Z:" .. string.sub(Coordinates.z, 1, string.len(math.floor(Coordinates.z) + 2)))
 	return true
 end
+
+function HandleSubCmdNumWP(Split, Player)
+	Player:SendMessage("You have " .. #Paths[Player:GetName()] .. " waypoints")
+	return true
+end
+

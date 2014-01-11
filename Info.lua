@@ -62,6 +62,12 @@ function GetPluginInfo()
 							},
 						},
 					},
+					numwp =
+					{
+						HelpString = "Sends the amount of waypoints your path holds.",
+						Permission = "path.numwp",
+						Handler = HandleSubCmdNumWP,
+					},
 					start =
 					{
 						HelpString = "Teleports you to the first waypoint and then moves you smoothly through them.",

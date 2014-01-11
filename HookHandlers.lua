@@ -1,5 +1,7 @@
 function OnPlayerJoined(Player)
-	CurrentPath[Player:GetName()] = -1
+	local PlayerName = Player:GetName()
+	CurrentPath[PlayerName] = -1
+	Paths[PlayerName] = {}
 end
 
 function OnPlayerMoving(Player)
