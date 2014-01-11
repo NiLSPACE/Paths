@@ -182,8 +182,8 @@ local function WriteCommandsCategoryForum(a_Category, f)
 		if (cmd.Info.DetailedDescription ~= nil) then
 			f:write(cmd.Info.DetailedDescription);
 		end
-		if (cmd.Info.DetailedHelp ~= nil) then
-			WriteCommandDetailedHelpForum(cmd.CommandString, cmd.Info.DetailedHelp, f);
+		if (cmd.Info.ParameterCombinations ~= nil) then
+			WriteCommandDetailedHelpForum(cmd.CommandString, cmd.Info.ParameterCombinations, f);
 		end
 	end
 	f:write("[/list]\n\n")
