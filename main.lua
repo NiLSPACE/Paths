@@ -24,3 +24,11 @@ function Initialize(Plugin)
 	end)
 	return true
 end
+
+function OnDisable()
+	cRoot:Get():ForEachPlayer(function(Player)
+		if CurrentPath[Player:GetName()] ~= -1 then
+			Player:SendMessage("Due to the plugin unloading the path was interupted.")
+		end
+	end)
+end
