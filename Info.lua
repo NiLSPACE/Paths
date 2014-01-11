@@ -36,6 +36,19 @@ This plugin allows users to fly through a given path smoothly
 					Permission = "path.clear",
 					Handler = HandleSubCmdClear,
 				},
+				replace =
+				{
+					HelpString = "Replaces the given path ID with the position you are currently standing.",
+					Permission = "path.replace",
+					Handler = HandleSubCmdReplace,
+					ParameterCombinations =
+					{
+						{
+							Params = "PathID",
+							Help = "The ID you want to replace",
+						},
+					},
+				},
 				start =
 				{
 					HelpString = "Teleports you to the first waypoint and then moves you smoothly through them.",
