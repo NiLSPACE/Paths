@@ -94,3 +94,14 @@ function HandleSubCmdNumWP(Split, Player)
 	return true
 end
 
+function HandleSubCmdSwap(Split, Player)
+	local PlayerName = Player:GetName()
+	local NumWaypoints = #Paths[PlayerName]
+	for Idx = 1, NumWaypoints / 2 do
+		print(Idx, NumWaypoints - Idx)
+		Paths[PlayerName][Idx], Paths[PlayerName][NumWaypoints - Idx + 1] = Paths[PlayerName][NumWaypoints - Idx + 1], Paths[PlayerName][Idx]
+	end
+	Player:SendMessage(cChatColor.LightGreen .. "Your waypoints have swapped")
+	return true
+end
+		

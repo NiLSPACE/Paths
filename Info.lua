@@ -87,6 +87,12 @@ function GetPluginInfo()
 						Permission = "path.stop",
 						Handler = HandleSubCmdStop,
 					},
+					swap =
+					{
+						HelpString = "Swaps all your waypoints. The first becomes the last etc",
+						Permission = "path.swap",
+						Handler = HandleSubCmdSwap,
+					},
 					teleport =
 					{
 						HelpString = "Teleports you to the given path",
