@@ -17,7 +17,7 @@ function OnPlayerMoving(Player)
 	local DirectionVector = (Player:GetPosition() - Vector3d(Paths[PlayerName][CurrentPath[PlayerName]][1]))
 	if DirectionVector:Length() < 1.5 then
 		if tonumber(CurrentPath[PlayerName]) == tonumber(#Paths[PlayerName]) then
-			Player:SendMessage("Last path")
+			Player:SendMessage(cChatColor.LightGreen .. "You have reached the latest waypoint.")
 			CurrentPath[PlayerName] = -1
 			MaxSpeed[PlayerName] = -1
 			return false
