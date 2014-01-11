@@ -81,6 +81,19 @@ This plugin allows users to fly through a given path smoothly
 					Permission = "path.stop",
 					Handler = HandleSubCmdStop,
 				},
+				teleport =
+				{
+					HelpString = "Teleports you to the given path",
+					Permission = "path.teleport",
+					Handler = HandleSubCmdTeleport,
+					ParameterCombinations =
+					{
+						{
+							Params = "PathID",
+							Help = "The path ID you want to teleport to",
+						},
+					},
+				},
 			},
 		},
 	},
