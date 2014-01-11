@@ -55,3 +55,19 @@ function HandleSubCmdReplace(Split, Player)
 	Player:SendMessage("Path " .. ID .. " is replaced. New coordinates are: " .. "X:" .. string.sub(Player:GetPosX(), 1, string.len(math.floor(Player:GetPosX())) + 2) .. " Y:" .. string.sub(Player:GetPosY(), 1, string.len(math.floor(Player:GetPosY())) + 2) .. " Z:" .. string.sub(Player:GetPosZ(), 1, string.len(math.floor(Player:GetPosZ())) + 2))
 	return true
 end
+
+function HandleSubCmdRemove(Split, Player)
+	if Split[3] == nil or tonumber(Split[3]) == nil then
+		Player:SendMessage(cChatColor.Rose .. "Usage: /path remove <ID>")
+		return true
+	end
+	local ID = tonumber(Split[3])
+	local PlayerName = Player:GetName()
+	if Paths[PlayerName][ID] == nil then
+		Player:SendMessage(cChatColor.Rose .. "Path ID does not exist.")
+		return true
+	end
+	table.remove(Paths[PlayerName], ID)
+	Player:SendMessage("Path " .. ID .. " is removed.")
+	return true
+end

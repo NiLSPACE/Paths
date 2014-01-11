@@ -36,6 +36,19 @@ This plugin allows users to fly through a given path smoothly
 					Permission = "path.clear",
 					Handler = HandleSubCmdClear,
 				},
+				remove =
+				{
+					HelpString = "Removes the given path ID",
+					Permission = "path.remove",
+					Handler = HandleSubCmdRemove,
+					ParameterCombination =
+					{
+						{
+							Params = "PathID",
+							Help = "The ID that will be removed.",
+						},
+					},
+				},
 				replace =
 				{
 					HelpString = "Replaces the given path ID with the position you are currently standing.",
