@@ -252,6 +252,8 @@ local function DumpPluginInfoForum(a_PluginFolder, a_PluginInfo)
 	DumpAdditionalInfoForum(a_PluginInfo, f);
 	DumpCommandsForum(a_PluginInfo, f);
 
+	f:write("[b][color=blue]Source:[/color] [url=" .. a_PluginInfo.SourceLink .. "]Link[/url][/b]")
+	
 	f:close();
 end
 

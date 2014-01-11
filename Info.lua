@@ -13,8 +13,11 @@ function GetPluginInfo()
 		Date = "2014-1-11",
 		Description =
 	[[
-	This plugin allows users to fly through a given path smoothly
+	This plugin allows users to fly through a given path smoothly by placing waypoints in the world.
+	When the player then uses "/path start" the plugin starts guiding/pushing the player in the way of the next waypoint.
+	This is usefull for for example recording. A player can set out a path then start recording, and the server will do the moving while the player can enjoy the sightseeing.
 	]],
+		SourceLink = "https://github.com/STRWarrior/Paths",
 		Commands =
 		{
 			["/path"] =
