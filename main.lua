@@ -1,10 +1,13 @@
 
+g_PluginInfo = nil
 MaxSpeed = {}
 CurrentPath = {}
 Paths = {}
 PLUGIN = Plugin
 
 function Initialize(Plugin)
+	g_PluginInfo = GetPluginInfo()
+	
 	PLUGIN = Plugin
 	Plugin:SetName(g_PluginInfo.Name)
 	Plugin:SetVersion(0)
@@ -12,9 +15,6 @@ function Initialize(Plugin)
 	cPluginManager.AddHook(cPluginManager.HOOK_PLAYER_MOVING, OnPlayerMoving)
 	cPluginManager.AddHook(cPluginManager.HOOK_PLAYER_JOINED, OnPlayerJoined)
 	
-	
-	dofile(PLUGIN:GetLocalFolder() .. "/Info.lua") -- Disable to get errors.
-	print(g_PluginInfo.Commands["/path"].Subcommands.add.Handler)
 	RegisterPluginInfoCommands()
 	
 	cRoot:Get():ForEachPlayer(function(Player)
