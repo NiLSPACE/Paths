@@ -45,7 +45,7 @@ function HandleSubCmdStart(Split, Player)
 	CurrentPath[PlayerName] = 1
 	MaxSpeed[PlayerName] = tonumber(Split[3])
 	
-	Player:SendMessage(cChatColor.LightGreen .. "Path Started")
+	Player:SendMessage(cChatColor.LightGreen .. "Path Started with a max speed of " .. Split[3])
 	return true
 end
 
