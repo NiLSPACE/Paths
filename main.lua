@@ -1,13 +1,11 @@
+DUMPINFO = false -- Set to true if you want the InfoDump plugin to create info about the plugin in forum format and github format.
 
-g_PluginInfo = nil
 MaxSpeed = {}
 CurrentPath = {}
 Paths = {}
 PLUGIN = Plugin
 
 function Initialize(Plugin)
-	g_PluginInfo = GetPluginInfo()
-	
 	PLUGIN = Plugin
 	Plugin:SetName(g_PluginInfo.Name)
 	Plugin:SetVersion(0)
@@ -16,6 +14,13 @@ function Initialize(Plugin)
 	cPluginManager.AddHook(cPluginManager.HOOK_PLAYER_JOINED, OnPlayerJoined)
 	
 	RegisterPluginInfoCommands()
+	
+	if DUMPINFO then
+		local InfoDump, error = loadfile(cPluginManager:GetPluginsPath() .. "/InfoDump.lua")
+		if (InfoDump ~= nil) then
+			InfoDump(Plugin:GetLocalFolder())
+		end
+	end
 	
 	cRoot:Get():ForEachPlayer(function(Player)
 		local PlayerName = Player:GetName()
